@@ -1,27 +1,31 @@
 import React from "react";
 
 interface TagProps {
-  name: string;
+  tag: Tag;
   showName?: boolean;
-  hexColorString?: string;
 }
 
-const Tag = ({ name, showName = true, hexColorString }: TagProps) => {
+export type Tag = {
+  name: string;
+  hexColorString: string;
+};
+
+const ProjectTag = ({ tag, showName = true }: TagProps) => {
   return (
     <div
       className="w-fit h-fit rounded-full p-3 flex flex-row items-center gap-2"
       style={{
-        backgroundColor: `${hexColorString}10`,
-        color: `${hexColorString}`,
+        backgroundColor: `${tag.hexColorString}10`,
+        color: `${tag.hexColorString}`,
       }}
     >
       <div
         className="h-[1em] aspect-square rounded-full"
-        style={{ backgroundColor: hexColorString }}
+        style={{ backgroundColor: tag.hexColorString }}
       />
-      {showName && <span className="pr-1">{name}</span>}
+      {showName && <span className="pr-1">{tag.name}</span>}
     </div>
   );
 };
 
-export default Tag;
+export default ProjectTag;

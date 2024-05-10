@@ -3,6 +3,7 @@ import * as React from "react";
 import RootLayout from "../components/layout/RootLayout";
 import Hero from "../components/home/sections/Hero";
 import AboutMe from "../components/home/sections/AboutMe";
+import Projects from "../components/home/sections/Projects";
 
 const IndexPage = () => {
   return (
@@ -10,6 +11,7 @@ const IndexPage = () => {
       <main>
         <Hero />
         <AboutMe />
+        <Projects />
       </main>
     </RootLayout>
   );
