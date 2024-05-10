@@ -2,6 +2,7 @@ import React from "react";
 import ProjectTag, { Tag } from "../Tag";
 
 interface ProjectPreviewProps {
+  key: React.Key | null | undefined;
   title: string;
   year: number;
   scope: string;
@@ -11,6 +12,7 @@ interface ProjectPreviewProps {
 }
 
 const ProjectPreview = ({
+  key,
   title,
   year,
   scope,
@@ -21,6 +23,7 @@ const ProjectPreview = ({
   return (
     <a
       href={slug}
+      key={key}
       className="h-[300px] glasscard-dark p-4 flex flex-col gap-2 cursor-pointer"
     >
       <img
