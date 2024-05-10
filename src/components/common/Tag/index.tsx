@@ -13,7 +13,7 @@ export type Tag = {
 const ProjectTag = ({ tag, showName = true }: TagProps) => {
   return (
     <div
-      className="w-fit h-fit rounded-full p-3 flex flex-row items-center gap-2"
+      className="w-fit h-fit rounded-full p-2 flex flex-row items-center gap-2 text-sm"
       style={{
         backgroundColor: `${tag.hexColorString}10`,
         color: `${tag.hexColorString}`,

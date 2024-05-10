@@ -7,12 +7,13 @@ const Projects = () => {
   return (
     <SectionWrapper className="container mx-auto flex flex-col gap-16 items-center">
       <h1 className="text-center">Projects</h1>
-      <div className="grid grid-cols-3 gap-8 w-full max-w-[1000px]">
+      <div className="grid grid-cols-3 gap-8 w-full max-w-[920px]">
         <ProjectPreview
           title="EinfachEinfach"
           scope="Educational Project"
           year={2024}
           thumbnailSrc={imgGatsbyCover}
+          slug="#einfach-einfach"
           tags={[
             { name: "React", hexColorString: "#51A0D5" },
             { name: "TypeScript", hexColorString: "#FCFF80" },
@@ -23,6 +24,7 @@ const Projects = () => {
           scope="Educational Project"
           year={2024}
           thumbnailSrc={imgGatsbyCover}
+          slug="#einfach-einfach"
           tags={[
             { name: "React", hexColorString: "#51A0D5" },
             { name: "TypeScript", hexColorString: "#FCFF80" },
@@ -33,6 +35,7 @@ const Projects = () => {
           scope="Educational Project"
           year={2024}
           thumbnailSrc={imgGatsbyCover}
+          slug="#einfach-einfach"
           tags={[
             { name: "React", hexColorString: "#51A0D5" },
             { name: "TypeScript", hexColorString: "#FCFF80" },
@@ -43,6 +46,7 @@ const Projects = () => {
           scope="Educational Project"
           year={2024}
           thumbnailSrc={imgGatsbyCover}
+          slug="#einfach-einfach"
           tags={[
             { name: "React", hexColorString: "#51A0D5" },
             { name: "TypeScript", hexColorString: "#FCFF80" },
@@ -53,6 +57,7 @@ const Projects = () => {
           scope="Educational Project"
           year={2024}
           thumbnailSrc={imgGatsbyCover}
+          slug="#einfach-einfach"
           tags={[
             { name: "React", hexColorString: "#51A0D5" },
             { name: "TypeScript", hexColorString: "#FCFF80" },
@@ -63,6 +68,7 @@ const Projects = () => {
           scope="Educational Project"
           year={2024}
           thumbnailSrc={imgGatsbyCover}
+          slug="#einfach-einfach"
           tags={[
             { name: "React", hexColorString: "#51A0D5" },
             { name: "TypeScript", hexColorString: "#FCFF80" },
@@ -73,6 +79,7 @@ const Projects = () => {
           scope="Educational Project"
           year={2024}
           thumbnailSrc={imgGatsbyCover}
+          slug="#einfach-einfach"
           tags={[
             { name: "React", hexColorString: "#51A0D5" },
             { name: "TypeScript", hexColorString: "#FCFF80" },
@@ -83,6 +90,7 @@ const Projects = () => {
           scope="Educational Project"
           year={2024}
           thumbnailSrc={imgGatsbyCover}
+          slug="#einfach-einfach"
           tags={[
             { name: "React", hexColorString: "#51A0D5" },
             { name: "TypeScript", hexColorString: "#FCFF80" },
@@ -93,6 +101,7 @@ const Projects = () => {
           scope="Educational Project"
           year={2024}
           thumbnailSrc={imgGatsbyCover}
+          slug="#einfach-einfach"
           tags={[
             { name: "React", hexColorString: "#51A0D5" },
             { name: "TypeScript", hexColorString: "#FCFF80" },
