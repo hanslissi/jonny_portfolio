@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap");
+
 @layer base {
   html {
     @apply text-white;
@@ -20,7 +23,7 @@
   }
 
   p {
-    @apply font-sans text-sm text-whiteHighlight md:text-base lg:text-lg;
+    @apply text-xs text-whiteHighlight md:text-sm lg:text-base;
   }
 }
 

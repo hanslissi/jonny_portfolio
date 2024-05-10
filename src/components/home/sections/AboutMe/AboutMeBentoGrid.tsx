@@ -8,7 +8,7 @@ import imgJonnyChair from "../../../../images/jonny/jonny_chair.png";
 
 const AboutMeBentoGrid = () => {
   return (
-    <div className="relative w-full max-w-[1000px] h-[1128px] grid grid-cols-7 grid-rows-3 gap-8">
+    <div className="relative w-full max-w-[920px] h-[1128px] grid grid-cols-7 grid-rows-3 gap-8">
       <div className="col-span-5 glasscard-dark p-8 flex flex-col justify-between">
         <div className="flex flex-row gap-2">
           <img

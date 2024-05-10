@@ -12,10 +12,10 @@ const AboutMe = () => {
       <div className="container mx-auto flex flex-col items-center gap-16 py-16 bg-[length:100%_100%]">
         <h1 className="text-center">About Me</h1>
         <div className="relative inline-block">
-          <span className="absolute text-9xl font-bold -top-16 -left-10">
+          <span className="absolute text-9xl font-bold font-mono -top-16 -left-10">
             {"<"}
           </span>
-          <span className="absolute text-9xl font-bold -bottom-16 -right-10">
+          <span className="absolute text-9xl font-bold font-mono -bottom-12 -right-24">
             {"/>"}
           </span>
           <AboutMeBentoGrid />

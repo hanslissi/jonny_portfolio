@@ -11,15 +11,16 @@ module.exports = {
         secondary: "#C488BF",
         primaryBg: "#2E373D",
         brightSecondaryBg: "#3331320D",
-        darkSecondaryBg: "#23232380",
+        darkSecondaryBg: "#232323CC",
         whiteHighlight: "#FFFFFF80",
       },
       borderColor: {
         DEFAULT: "#717171",
       },
       fontFamily: {
-        fancy: ["Roboto Slab", "Verdana", "sans-serif"],
+        fancy: ["Urbanist", "Roboto Slab", "sans-serif"],
         sans: ["Roboto", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
       },
     },
   },
