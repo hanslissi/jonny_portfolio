@@ -2,7 +2,7 @@ import React from "react";
 
 const Nav = () => {
   return (
-    <header className="sticky flex justify-center py-4 top-0 z-50">
+    <header className="fixed w-full flex justify-center pt-6 top-0 z-50">
       <nav className="bg-brightSecondaryBg backdrop-blur-md border-[0.5px] rounded-full text-white flex flex-row justify-center items-center px-1 py-1 gap-2">
         <a
           href="#home"
