@@ -6,8 +6,8 @@ import imgLinkedIn from "../../../../images/logos/linkedin.png";
 
 const AboutMeBentoGrid = () => {
   return (
-    <div className="w-full max-w-[1000px] h-[1128px] mx-auto grid grid-cols-6 grid-rows-3 gap-8">
-      <div className="col-span-4 bg-darkSecondaryBg rounded-3xl border-[0.5px] p-8 flex flex-col justify-between">
+    <div className="relative w-full max-w-[1000px] h-[1128px] grid grid-cols-7 grid-rows-3 gap-8">
+      <div className="col-span-5 glasscard-dark flex flex-col justify-between">
         <div className="flex flex-row gap-2">
           <img
             src={imgGithub}
@@ -48,10 +48,10 @@ const AboutMeBentoGrid = () => {
           href="https://github.com"
         />
       </div>
-      <div className="col-span-2 bg-darkSecondaryBg rounded-3xl border-[0.5px] p-12"></div>
-      <div className="col-span-4 bg-darkSecondaryBg rounded-3xl border-[0.5px] p-12"></div>
-      <div className="col-span-4 bg-darkSecondaryBg rounded-3xl border-[0.5px] p-12"></div>
-      <div className="col-span-2 bg-darkSecondaryBg rounded-3xl border-[0.5px] p-12"></div>
+      <div className="col-span-3 card-dark"></div>
+      <div className="col-span-4 card-dark"></div>
+      <div className="col-span-5 card-dark"></div>
+      <div className="col-span-2 glasscard-dark"></div>
     </div>
   );
 };

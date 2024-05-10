@@ -19,7 +19,7 @@ const TechLogoCardLink = ({
   return (
     <a
       className={clsx(
-        "flex flex-col justify-center items-center gap-4 border-[0.5px] rounded-3xl bg-brightSecondaryBg",
+        "flex flex-col justify-center items-center gap-4 border-[0.5px] rounded-3xl bg-brightSecondaryBg text-whiteHighlight",
         className
       )}
       href={href}

@@ -23,3 +23,13 @@
     @apply font-sans text-sm text-whiteHighlight md:text-base lg:text-lg;
   }
 }
+
+@layer components {
+  .card-dark {
+    @apply bg-darkSecondaryBg rounded-3xl border-[0.5px] p-8;
+  }
+
+  .glasscard-dark {
+    @apply card-dark backdrop-blur-md;
+  }
+}
