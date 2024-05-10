@@ -1,4 +1,5 @@
 import React from "react";
+import Nav from "./Nav";
 
 interface RootLayoutProps {
   children: React.ReactNode;
@@ -13,6 +14,7 @@ const RootLayout = ({
 }: RootLayoutProps) => {
   return (
     <div className="bg-primaryBg">
+      {nav && <Nav />}
       <div className="overflow-hidden">{children}</div>
     </div>
   );
