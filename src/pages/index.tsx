@@ -1,13 +1,15 @@
 import type { HeadFC } from "gatsby";
 import * as React from "react";
 import RootLayout from "../components/layout/RootLayout";
-import Hero from "../components/home/sections/Hero/Hero";
+import Hero from "../components/home/sections/Hero";
+import AboutMe from "../components/home/sections/AboutMe";
 
 const IndexPage = () => {
   return (
     <RootLayout>
       <main>
         <Hero />
+        <AboutMe />
       </main>
     </RootLayout>
   );

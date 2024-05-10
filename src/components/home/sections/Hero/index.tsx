@@ -5,7 +5,7 @@ import imgHeroBg from "./hero-bg.png";
 const Hero = () => {
   return (
     <SectionWrapper
-      className="h-[100vh] bg-cover text-white"
+      className="h-[100vh] bg-cover"
       style={{ backgroundImage: `url(${imgHeroBg})` }}
     >
       <div className="h-full w-full flex justify-center items-center">
