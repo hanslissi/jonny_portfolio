@@ -26,10 +26,30 @@
 
 @layer components {
   .card-dark {
-    @apply bg-darkSecondaryBg rounded-3xl border-[0.5px] p-8;
+    @apply bg-darkSecondaryBg rounded-3xl border-[0.5px];
   }
 
   .glasscard-dark {
     @apply card-dark backdrop-blur-md;
+  }
+
+  .card-bright {
+    @apply bg-brightSecondaryBg rounded-3xl border-[0.5px];
+  }
+
+  .glasscard-bright {
+    @apply card-bright backdrop-blur-md;
+  }
+}
+
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 }
