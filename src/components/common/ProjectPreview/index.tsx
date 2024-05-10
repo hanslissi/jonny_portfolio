@@ -22,7 +22,7 @@ const ProjectPreview = ({
 }: ProjectPreviewProps) => {
   return (
     <a
-      href={slug}
+      href={`/projects/${slug}`}
       key={key}
       className="h-[300px] glasscard-dark p-4 flex flex-col gap-2 cursor-pointer"
     >

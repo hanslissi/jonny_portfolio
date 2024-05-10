@@ -5,7 +5,7 @@ import { useStaticQuery, graphql } from "gatsby";
 
 const Projects = () => {
   const data = useStaticQuery(graphql`
-    query ProjectsQuery {
+    query ProjectPrieview {
       allSanityProject {
         edges {
           node {

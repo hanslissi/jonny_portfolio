@@ -7,13 +7,11 @@ import Projects from "../components/home/sections/Projects";
 
 const IndexPage = () => {
   return (
-    <RootLayout>
-      <main>
-        <Hero />
-        <AboutMe />
-        <Projects />
-      </main>
-    </RootLayout>
+    <main>
+      <Hero />
+      <AboutMe />
+      <Projects />
+    </main>
   );
 };
 
