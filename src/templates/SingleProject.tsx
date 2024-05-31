@@ -1,6 +1,5 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
-import RootLayout from "../components/layout/RootLayout";
 import ProjectTag, { Tag } from "../components/common/Tag";
 
 const SingleProject = ({ data }: PageProps<Queries.SingleProjectQuery>) => {
@@ -13,7 +12,7 @@ const SingleProject = ({ data }: PageProps<Queries.SingleProjectQuery>) => {
   const { title, year, scope, tags, content } = data.sanityProject;
 
   return (
-    <div>
+    <div className="container mx-auto mt-32">
       <div className="flex flex-col">
         <h1>{title}</h1>
         <p>
