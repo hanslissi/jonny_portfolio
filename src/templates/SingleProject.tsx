@@ -1,41 +1,71 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 import ProjectTag, { Tag } from "../components/common/Tag";
+import { PortableTextBlock } from "@portabletext/react";
+import MyPortableText from "../components/common/MyPortableText";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-const SingleProject = ({ data }: PageProps<Queries.SingleProjectQuery>) => {
+interface SanityProject {
+  title: string;
+  year: string;
+  scope: { title: string };
+  tags: { title: string; color: string }[];
+  thumbnail: any;
+  abstractContent: PortableTextBlock[];
+  content: PortableTextBlock[];
+}
+
+interface SingleProjectQuery {
+  sanityProject: SanityProject;
+}
+
+const SingleProject = ({ data }: PageProps<SingleProjectQuery>) => {
   // Check if data.sanityProject exists before rendering the component
   if (!data.sanityProject) {
     return <div>Project data is not available.</div>;
   }
 
   // Destructure data.sanityProject for easier access
-  const { title, year, scope, tags, content } = data.sanityProject;
+  const { title, year, scope, tags, abstractContent, content } =
+    data.sanityProject;
+
+  const thumbnail = getImage(data.sanityProject.thumbnail.asset);
 
   return (
     <div className="container mx-auto mt-32">
-      <div className="flex flex-col">
-        <h1>{title}</h1>
-        <p>
-          {year} - {scope?.title}
-        </p>
-      </div>
-      <div className="flex flex-row gap-2 flex-wrap">
-        {tags?.map((tagRaw, index) => {
-          const tag: Tag = {
-            name: tagRaw?.title || "",
-            hexColorString: tagRaw?.color || "#FFFFFF",
-          };
-          return tag && <ProjectTag key={index} tag={tag} showName={true} />;
-        })}
-      </div>
-      <div>
-        {content?.map((contentBlock, index) => {
-          if (contentBlock && contentBlock?.children) {
-            const contentItem = contentBlock.children[0];
-            return <p key={index}>{contentItem?.text}</p>;
-          }
-          return null;
-        })}
+      <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-2">
+          <h1>{title}</h1>
+          <p>
+            {year} - {scope?.title}
+          </p>
+          <div className="flex flex-row gap-2 flex-wrap">
+            {tags.map((tagRaw, index) => {
+              const tag: Tag = {
+                name: tagRaw.title || "",
+                hexColorString: tagRaw.color || "#FFFFFF",
+              };
+              return (
+                tag && <ProjectTag key={index} tag={tag} showName={true} />
+              );
+            })}
+          </div>
+        </div>
+        <div className="flex flex-row w-full gap-8">
+          {thumbnail && (
+            <GatsbyImage
+              className="w-full rounded-xl"
+              image={thumbnail}
+              alt={`${title} project thumbnail`}
+            />
+          )}
+          <div className="w-[60%]">
+            <MyPortableText value={abstractContent} />
+          </div>
+        </div>
+        <div className="mx-auto w-full max-w-[800px]">
+          <MyPortableText value={content} />
+        </div>
       </div>
     </div>
   );
@@ -48,21 +78,23 @@ export const projectQuery = graphql`
     sanityProject(id: { eq: $id }) {
       title
       year
-      content {
-        children {
-          text
-          marks
-        }
-        style
-        listItem
-        level
-      }
+      content: _rawContent(resolveReferences: { maxDepth: 5 })
+      abstractContent: _rawAbstractContent(resolveReferences: { maxDepth: 5 })
       scope {
         title
       }
       tags {
         title
         color
+      }
+      thumbnail {
+        asset {
+          gatsbyImageData(
+            width: 400
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
+        }
       }
     }
   }
