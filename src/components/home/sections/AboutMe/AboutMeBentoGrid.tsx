@@ -1,5 +1,5 @@
 import React from "react";
-import TechLogoCardLink from "../../../common/ TechLogoCardLink";
+import TechLogoCardLink from "../../../common/TechLogoCardLink";
 import imgThreads from "../../../../images/logos/threads.png";
 import imgGithub from "../../../../images/logos/github.png";
 import imgLinkedIn from "../../../../images/logos/linkedin.png";
