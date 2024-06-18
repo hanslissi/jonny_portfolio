@@ -15,7 +15,7 @@ const SectionWrapper = forwardRef<HTMLElement, SectionWrapperProps>(
         ref={ref}
         id={id}
         style={style}
-        className={clsx("relative mx-auto scroll-my-20", className)}
+        className={clsx("relative mx-auto scroll-my-12", className)}
       >
         {children}
       </section>

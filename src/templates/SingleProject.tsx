@@ -5,6 +5,7 @@ import { PortableTextBlock } from "@portabletext/react";
 import MyPortableText from "../components/common/MyPortableText";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import TechLogoCardLink from "../components/common/TechLogoCard";
+import Nav from "../components/layout/Nav";
 
 interface SanityProject {
   title: string;
@@ -34,55 +35,60 @@ const SingleProject = ({ data }: PageProps<SingleProjectQuery>) => {
   const thumbnail = getImage(data.sanityProject.thumbnail.asset);
 
   return (
-    <div className="container mx-auto mt-32">
-      <div className="flex flex-col gap-8">
-        <div className="flex flex-col gap-2">
-          <h1>{title}</h1>
-          <p>
-            {year} - {scope?.title}
-          </p>
-          <div className="flex flex-row gap-2 flex-wrap">
-            {tags.map((tagRaw, index) => {
-              const tag: Tag = {
-                name: tagRaw.title || "",
-                hexColorString: tagRaw.color || "#FFFFFF",
-              };
-              return (
-                tag && <ProjectTag key={index} tag={tag} showName={true} />
-              );
-            })}
+    <main>
+      <Nav backbuttonInfo={
+        {title: "Back to Projects", href: "/#projects"}
+      }/>
+      <div className="container mx-auto mt-32">
+        <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-2">
+            <h1>{title}</h1>
+            <p>
+              {year} - {scope?.title}
+            </p>
+            <div className="flex flex-row gap-2 flex-wrap">
+              {tags.map((tagRaw, index) => {
+                const tag: Tag = {
+                  name: tagRaw.title || "",
+                  hexColorString: tagRaw.color || "#FFFFFF",
+                };
+                return (
+                  tag && <ProjectTag key={index} tag={tag} showName={true} />
+                );
+              })}
+            </div>
           </div>
-        </div>
-        <div className="flex flex-row w-full gap-8">
-          {thumbnail && (
-            <GatsbyImage
-              className="w-full rounded-xl"
-              image={thumbnail}
-              alt={`${title} project thumbnail`}
-            />
-          )}
-          <div className="w-[60%]">
-            <MyPortableText value={abstractContent} />
-          </div>
-        </div>
-        <div className="flex flex-col items-center gap-8">
-          <h2>Tools & Tech Stack</h2>
-          <div className="flex flex-row gap-8">
-            {projectTools.map((tool, index) => {
-              return <TechLogoCardLink
-                key={index}
-                img={getImage(tool.toolLogo.asset)}
-                imgSrc={tool.toolLogo.asset.gatsbyImageData.images.fallback.src}
-                title={tool.title}
+          <div className="flex flex-row w-full gap-8">
+            {thumbnail && (
+              <GatsbyImage
+                className="w-full rounded-xl"
+                image={thumbnail}
+                alt={`${title} project thumbnail`}
               />
-            })}
+            )}
+            <div className="w-[60%]">
+              <MyPortableText value={abstractContent} />
+            </div>
           </div>
-        </div>
-        <div className="mx-auto w-full max-w-[800px]">
-          <MyPortableText value={content} />
+          <div className="flex flex-col items-center gap-8">
+            <h2>Tools & Tech Stack</h2>
+            <div className="flex flex-row gap-8">
+              {projectTools.map((tool, index) => {
+                return <TechLogoCardLink
+                  key={index}
+                  img={getImage(tool.toolLogo.asset)}
+                  imgSrc={tool.toolLogo.asset.gatsbyImageData.images.fallback.src}
+                  title={tool.title}
+                />
+              })}
+            </div>
+          </div>
+          <div className="mx-auto w-full max-w-[800px]">
+            <MyPortableText value={content} />
+          </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 };
 

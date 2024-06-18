@@ -5,7 +5,7 @@ import React from "react";
 
 interface TechLogoCardLinkProps {
   img: IGatsbyImageData | undefined;
-  imgSrc: string;
+  imgSrc: string | undefined;
   title: string;
   glass?: boolean;
   className?: string;
@@ -19,7 +19,7 @@ const TechLogoCardLink = ({
   className,
 }: TechLogoCardLinkProps) => {
   return (
-    <Color src={imgSrc} format={"hex"} crossOrigin="anonymous">
+    <Color src={imgSrc ?? ""} format={"hex"} crossOrigin="anonymous">
       {({ data: color }) => {
         return (
           <div

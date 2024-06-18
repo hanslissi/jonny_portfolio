@@ -6,6 +6,7 @@ const Hero = () => {
   return (
     <SectionWrapper
       className="h-[100vh] bg-cover"
+      id="home"
       style={{ backgroundImage: `url(${imgHeroBg})` }}
     >
       <div className="h-full w-full flex justify-center items-center">

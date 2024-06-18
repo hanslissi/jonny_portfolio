@@ -7,16 +7,36 @@ import imgGatsbyCover from "../../../../images/gatsby_cover.png";
 import imgJonnyChair from "../../../../images/jonny/jonny_chair.png";
 import LogoLinkCard from "../../../common/LogoLinkCard";
 import { StaticImage, getImage } from "gatsby-plugin-image";
+import { graphql, useStaticQuery } from "gatsby";
 
 const imgLinkedInPath = "../../../../images/logos/linkedin.png";
 const imgThreadsPath = "../../../../images/logos/threads.png";
 const imgGithubPath = "../../../../images/logos/github.png";
 
-interface AboutMeBentoGridProps {
-  projectTools: { toolLogo: any; title: string | null }[];
-}
+const AboutMeBentoGrid = () => {
+  const data: Queries.AllProjectToolsQuery = useStaticQuery(graphql`
+    query AllProjectTools {
+      allSanityProjectTool {
+        edges {
+          node {
+            title
+            toolLogo {
+              asset {
+                gatsbyImageData(
+                  width: 80
+                  placeholder: DOMINANT_COLOR
+                  formats: [AUTO, WEBP, AVIF]
+                )
+              }
+            }
+          }
+        } 
+      }
+    }
+  `);
 
-const AboutMeBentoGrid = ({ projectTools }: AboutMeBentoGridProps) => {
+  console.log(data);
+
   return (
     <div className="relative w-full max-w-[920px] h-[1128px] grid grid-cols-7 grid-rows-3 gap-8">
       <div className="col-span-5 glasscard-dark p-8 flex flex-col justify-between">
@@ -103,13 +123,17 @@ const AboutMeBentoGrid = ({ projectTools }: AboutMeBentoGridProps) => {
           </p>
         </div>
         <div className="flex gap-4 overflow-x-scroll no-scrollbar">
-          {projectTools.map((tool, index) => {
+          {data.allSanityProjectTool.edges.map((tool, index) => {
+            const toolLogo = tool.node.toolLogo;
+            if (!toolLogo) {
+              return null;
+            }
             return (
               <TechLogoCardLink
                 key={index}
-                img={getImage(tool.toolLogo.asset)}
-                imgSrc={tool.toolLogo.asset.gatsbyImageData.images.fallback.src}
-                title={tool.title ?? ""}
+                img={getImage(toolLogo.asset)}
+                imgSrc={toolLogo.asset?.gatsbyImageData.images.fallback?.src}
+                title={tool.node.title ?? ""}
               />
             );
           })}

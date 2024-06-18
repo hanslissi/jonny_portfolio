@@ -3,14 +3,12 @@ import SectionWrapper from "../../../wrappers/SectionWrapper";
 import AboutMeBentoGrid from "./AboutMeBentoGrid";
 import imgBackgroundGradient from "./background_gradient.png";
 
-interface AboutMeProps {
-  projectTools: { toolLogo: any; title: string | null }[];
-}
 
-const AboutMe = ({projectTools}: AboutMeProps) => {
+const AboutMe = () => {
   return (
     <SectionWrapper
       className="bg-[length:100%_100%]"
+      id="about-me"
       style={{ backgroundImage: `url(${imgBackgroundGradient})` }}
     >
       <div className="container mx-auto flex flex-col items-center gap-16 py-16 bg-[length:100%_100%]">
@@ -22,9 +20,7 @@ const AboutMe = ({projectTools}: AboutMeProps) => {
           <span className="absolute text-9xl font-bold font-mono -bottom-12 -right-24">
             {"/>"}
           </span>
-          <AboutMeBentoGrid 
-            projectTools={projectTools}
-          />
+          <AboutMeBentoGrid />
         </div>
       </div>
     </SectionWrapper>
