@@ -4,6 +4,7 @@ import ProjectTag, { Tag } from "../components/common/Tag";
 import { PortableTextBlock } from "@portabletext/react";
 import MyPortableText from "../components/common/MyPortableText";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import TechLogoCardLink from "../components/common/TechLogoCard";
 
 interface SanityProject {
   title: string;
@@ -13,6 +14,7 @@ interface SanityProject {
   thumbnail: any;
   abstractContent: PortableTextBlock[];
   content: PortableTextBlock[];
+  projectTools: { toolLogo: any; title: string }[];
 }
 
 interface SingleProjectQuery {
@@ -26,7 +28,7 @@ const SingleProject = ({ data }: PageProps<SingleProjectQuery>) => {
   }
 
   // Destructure data.sanityProject for easier access
-  const { title, year, scope, tags, abstractContent, content } =
+  const { title, year, scope, tags, abstractContent, content, projectTools } =
     data.sanityProject;
 
   const thumbnail = getImage(data.sanityProject.thumbnail.asset);
@@ -63,6 +65,19 @@ const SingleProject = ({ data }: PageProps<SingleProjectQuery>) => {
             <MyPortableText value={abstractContent} />
           </div>
         </div>
+        <div className="flex flex-col items-center gap-8">
+          <h2>Tools & Tech Stack</h2>
+          <div className="flex flex-row gap-8">
+            {projectTools.map((tool, index) => {
+              return <TechLogoCardLink
+                key={index}
+                img={getImage(tool.toolLogo.asset)}
+                imgSrc={tool.toolLogo.asset.gatsbyImageData.images.fallback.src}
+                title={tool.title}
+              />
+            })}
+          </div>
+        </div>
         <div className="mx-auto w-full max-w-[800px]">
           <MyPortableText value={content} />
         </div>
@@ -95,6 +110,18 @@ export const projectQuery = graphql`
             formats: [AUTO, WEBP, AVIF]
           )
         }
+      }
+      projectTools {
+        toolLogo {
+          asset {
+            gatsbyImageData(
+              width: 80
+              placeholder: DOMINANT_COLOR
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
+        title
       }
     }
   }

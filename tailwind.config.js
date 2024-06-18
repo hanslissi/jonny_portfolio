@@ -13,6 +13,7 @@ module.exports = {
         primaryBg: "#2E373D",
         brightSecondaryBg: "#3331320D",
         darkSecondaryBg: "#232323CC",
+        darkTertiaryBg: "#23232314",
         whiteHighlight: "#FFFFFF80",
       },
       borderColor: {

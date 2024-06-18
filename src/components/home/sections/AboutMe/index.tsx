@@ -3,7 +3,11 @@ import SectionWrapper from "../../../wrappers/SectionWrapper";
 import AboutMeBentoGrid from "./AboutMeBentoGrid";
 import imgBackgroundGradient from "./background_gradient.png";
 
-const AboutMe = () => {
+interface AboutMeProps {
+  projectTools: { toolLogo: any; title: string | null }[];
+}
+
+const AboutMe = ({projectTools}: AboutMeProps) => {
   return (
     <SectionWrapper
       className="bg-[length:100%_100%]"
@@ -18,7 +22,9 @@ const AboutMe = () => {
           <span className="absolute text-9xl font-bold font-mono -bottom-12 -right-24">
             {"/>"}
           </span>
-          <AboutMeBentoGrid />
+          <AboutMeBentoGrid 
+            projectTools={projectTools}
+          />
         </div>
       </div>
     </SectionWrapper>

@@ -36,12 +36,12 @@
     @apply card-dark backdrop-blur-md;
   }
 
-  .card-bright {
-    @apply bg-brightSecondaryBg rounded-3xl border-[0.5px];
+  .card-darkSecondary {
+    @apply bg-darkTertiaryBg rounded-3xl border-[0.5px];
   }
 
-  .glasscard-bright {
-    @apply card-bright backdrop-blur-md;
+  .glasscard-darkSecondary {
+    @apply card-darkSecondary backdrop-blur-md;
   }
 }
 

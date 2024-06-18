@@ -24,7 +24,7 @@ const components: PortableTextComponents = {
           <img
             src={value.asset?.url}
             alt={value.alt || ""}
-            className="max-h-[500px] object-cover rounded-xl"
+            className="max-h-[700px] object-cover rounded-xl"
           />
         </div>
       );

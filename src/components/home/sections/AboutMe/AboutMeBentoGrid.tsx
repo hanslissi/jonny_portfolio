@@ -1,18 +1,28 @@
 import React from "react";
-import TechLogoCardLink from "../../../common/TechLogoCardLink";
+import TechLogoCardLink from "../../../common/TechLogoCard";
+import imgLinkedin from "../../../../images/logos/linkedin.png";
 import imgThreads from "../../../../images/logos/threads.png";
 import imgGithub from "../../../../images/logos/github.png";
-import imgLinkedIn from "../../../../images/logos/linkedin.png";
 import imgGatsbyCover from "../../../../images/gatsby_cover.png";
 import imgJonnyChair from "../../../../images/jonny/jonny_chair.png";
+import LogoLinkCard from "../../../common/LogoLinkCard";
+import { StaticImage, getImage } from "gatsby-plugin-image";
 
-const AboutMeBentoGrid = () => {
+const imgLinkedInPath = "../../../../images/logos/linkedin.png";
+const imgThreadsPath = "../../../../images/logos/threads.png";
+const imgGithubPath = "../../../../images/logos/github.png";
+
+interface AboutMeBentoGridProps {
+  projectTools: { toolLogo: any; title: string | null }[];
+}
+
+const AboutMeBentoGrid = ({ projectTools }: AboutMeBentoGridProps) => {
   return (
     <div className="relative w-full max-w-[920px] h-[1128px] grid grid-cols-7 grid-rows-3 gap-8">
       <div className="col-span-5 glasscard-dark p-8 flex flex-col justify-between">
         <div className="flex flex-row gap-2">
-          <img
-            src={imgGithub}
+          <StaticImage
+            src={imgGithubPath}
             alt="Jonny Profile Image"
             className="h-full rounded-full"
           />
@@ -30,23 +40,41 @@ const AboutMeBentoGrid = () => {
         </p>
       </div>
       <div className="col-span-2 grid grid-cols-2 grid-rows-2 gap-4">
-        <TechLogoCardLink
-          img={imgLinkedIn}
-          alt="LinkedIn Logo"
-          name="LinkedIn"
+        <LogoLinkCard
+          img={(props) => (
+            <StaticImage
+              className={props.className}
+              alt={props.alt}
+              src={imgLinkedInPath}
+            />
+          )}
+          imgSrc={imgLinkedin}
+          title="LinkedIn"
           href="https://www.linkedin.com"
         />
-        <TechLogoCardLink
-          img={imgThreads}
-          alt="Threads Logo"
-          name="Threads"
+        <LogoLinkCard
+          img={(props) => (
+            <StaticImage
+              className={props.className}
+              alt={props.alt}
+              src={imgThreadsPath}
+            />
+          )}
+          imgSrc={imgThreads}
+          title="Threads"
           href="https://www.threads.net"
         />
-        <TechLogoCardLink
+        <LogoLinkCard
           className="col-span-2"
-          img={imgGithub}
-          alt="GitHub Logo"
-          name="GitHub"
+          img={(props) => (
+            <StaticImage
+              className={props.className}
+              alt={props.alt}
+              src={imgGithubPath}
+            />
+          )}
+          imgSrc={imgGithub}
+          title="GitHub"
           href="https://github.com"
         />
       </div>
@@ -72,48 +100,16 @@ const AboutMeBentoGrid = () => {
           </p>
         </div>
         <div className="flex gap-4 overflow-x-scroll no-scrollbar">
-          <TechLogoCardLink
-            className="col-span-2"
-            img={imgGithub}
-            alt="Figma Logo"
-            name="Figma"
-            href="https://figma.com"
-          />
-          <TechLogoCardLink
-            className="col-span-2"
-            img={imgGithub}
-            alt="Figma Logo"
-            name="Figma"
-            href="https://figma.com"
-          />
-          <TechLogoCardLink
-            className="col-span-2"
-            img={imgGithub}
-            alt="Figma Logo"
-            name="Figma"
-            href="https://figma.com"
-          />
-          <TechLogoCardLink
-            className="col-span-2"
-            img={imgGithub}
-            alt="Figma Logo"
-            name="Figma"
-            href="https://figma.com"
-          />
-          <TechLogoCardLink
-            className="col-span-2"
-            img={imgGithub}
-            alt="Figma Logo"
-            name="Figma"
-            href="https://figma.com"
-          />
-          <TechLogoCardLink
-            className="col-span-2"
-            img={imgGithub}
-            alt="Figma Logo"
-            name="Figma"
-            href="https://figma.com"
-          />
+          {projectTools.map((tool, index) => {
+            return (
+              <TechLogoCardLink
+                key={index}
+                img={getImage(tool.toolLogo.asset)}
+                imgSrc={tool.toolLogo.asset.gatsbyImageData.images.fallback.src}
+                title={tool.title ?? ""}
+              />
+            );
+          })}
         </div>
       </div>
       <div className="col-span-5 glasscard-dark pt-8 flex flex-col gap-4 justify-between overflow-hidden">
