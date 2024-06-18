@@ -7,6 +7,7 @@ interface TechLogoCardLinkProps {
   img: IGatsbyImageData | undefined;
   imgSrc: string;
   title: string;
+  glass?: boolean;
   className?: string;
 }
 
@@ -14,6 +15,7 @@ const TechLogoCardLink = ({
   img,
   imgSrc,
   title,
+  glass = false,
   className,
 }: TechLogoCardLinkProps) => {
   return (
@@ -22,8 +24,12 @@ const TechLogoCardLink = ({
         return (
           <div
             className={clsx(
-              "flex flex-col items-center gap-4 p-6 glasscard-darkSecondary rounded-xl text-whiteHighlight",
-              className
+              "flex flex-col items-center gap-4 p-6 rounded-xl text-whiteHighlight",
+              className, 
+              {
+                "glasscard-darkSecondary": glass,
+                "card-darkSecondary": !glass,
+              }
             )}
             style={{
               backgroundImage: `radial-gradient(

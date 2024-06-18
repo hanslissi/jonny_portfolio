@@ -7,6 +7,7 @@ interface TechLogoCardLinkProps {
     imgSrc: string;
     title: string;
     href: string;
+    glass?: boolean;
     className?: string;
 }
 
@@ -15,17 +16,22 @@ const LogoLinkCard = ({
     imgSrc,
     title,
     href,
+    glass = false,
     className,
 }: TechLogoCardLinkProps) => {
     return (
         <Color src={imgSrc} format={"hex"}>
-            {({ data: color, error }) => {
+            {({ data: color }) => {
                 return (
                     <a
                         href={href}
                         className={clsx(
-                            "flex flex-col justify-center items-center gap-4 p-6 glasscard-darkSecondary rounded-xl text-whiteHighlight",
-                            className
+                            "flex flex-col justify-center items-center gap-4 p-6 rounded-xl text-whiteHighlight",
+                            className,
+                            {
+                                "glasscard-darkSecondary": glass,
+                                "card-darkSecondary": !glass,
+                            }
                         )}
                         style={{
                             backgroundImage: `radial-gradient(

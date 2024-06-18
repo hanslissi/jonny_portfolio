@@ -51,6 +51,7 @@ const AboutMeBentoGrid = ({ projectTools }: AboutMeBentoGridProps) => {
           imgSrc={imgLinkedin}
           title="LinkedIn"
           href="https://www.linkedin.com"
+          glass
         />
         <LogoLinkCard
           img={(props) => (
@@ -63,6 +64,7 @@ const AboutMeBentoGrid = ({ projectTools }: AboutMeBentoGridProps) => {
           imgSrc={imgThreads}
           title="Threads"
           href="https://www.threads.net"
+          glass
         />
         <LogoLinkCard
           className="col-span-2"
@@ -76,6 +78,7 @@ const AboutMeBentoGrid = ({ projectTools }: AboutMeBentoGridProps) => {
           imgSrc={imgGithub}
           title="GitHub"
           href="https://github.com"
+          glass
         />
       </div>
       <div className="col-span-3 glasscard-dark pb-8 flex flex-col gap-4 justify-between overflow-hidden">
