@@ -35,8 +35,6 @@ const AboutMeBentoGrid = () => {
     }
   `);
 
-  console.log(data);
-
   return (
     <div className="relative w-full max-w-[920px] h-[1128px] grid grid-cols-7 grid-rows-3 gap-8">
       <div className="col-span-5 glasscard-dark p-8 flex flex-col justify-between">

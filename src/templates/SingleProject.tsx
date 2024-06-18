@@ -10,8 +10,8 @@ import Nav from "../components/layout/Nav";
 interface SanityProject {
   title: string;
   year: string;
-  scope: { title: string };
-  tags: { title: string; color: string }[];
+  scope: { id: string; title: string };
+  tags: { id: string; title: string; color: string }[];
   thumbnail: any;
   abstractContent: PortableTextBlock[];
   content: PortableTextBlock[];
@@ -49,6 +49,7 @@ const SingleProject = ({ data }: PageProps<SingleProjectQuery>) => {
             <div className="flex flex-row gap-2 flex-wrap">
               {tags.map((tagRaw, index) => {
                 const tag: Tag = {
+                  id: tagRaw.id,
                   name: tagRaw.title || "",
                   hexColorString: tagRaw.color || "#FFFFFF",
                 };
@@ -102,9 +103,11 @@ export const projectQuery = graphql`
       content: _rawContent(resolveReferences: { maxDepth: 5 })
       abstractContent: _rawAbstractContent(resolveReferences: { maxDepth: 5 })
       scope {
+        id
         title
       }
       tags {
+        id
         title
         color
       }
