@@ -124,7 +124,7 @@ const Projects = () => {
             noDot
           />
           {(selectedTagIds.length > 0 || selectedScopeIds.length > 0) && (
-            <span className="underline" onClick={handleClickReset}>Reset</span>
+            <button className="underline" onClick={handleClickReset}>Reset</button>
           )}
         </div>
 

@@ -21,7 +21,7 @@ const FilterDropdown = ({ filterType, filterOptions, onChange, noDot = false, in
     
     return (
         <div className="relative z-10">
-            <div
+            <button
                 className={clsx(
                     "h-12 flex flex-row gap-2 items-center bg-brightSecondaryBg border-[0.5px] rounded-full px-4 py-2 cursor-pointer",
                     {
@@ -47,7 +47,7 @@ const FilterDropdown = ({ filterType, filterOptions, onChange, noDot = false, in
                     })
                 ) : `All ${filterType}`}
 
-            </div>
+            </button>
             {showDropdown && (
                 <div className="absolute w-64 flex flex-row flex-wrap gap-2 left-0 top-[100%] glasscard-dark mt-2 p-4">
                     {filterOptions.map((option) => {

@@ -49,7 +49,7 @@ const AboutMeBentoGrid = () => {
             <p>aka Jonny</p>
           </div>
         </div>
-        <h2>I'm obsessed with good looking user interfaces</h2>
+        <h2>I'm obsessed with well designed user interfaces</h2>
         <p>
           Whenever I see cool UIs I get very excited! Not only do I love
           figuring out what makes these interfaces good, unique and interesting,
