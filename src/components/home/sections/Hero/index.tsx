@@ -17,18 +17,18 @@ const Hero = () => {
   `
   return (
     <SectionWrapper
-      className="h-[100vh] bg-cover"
+      className="h-[100vh] min-h-[680px] bg-cover"
       id="home"
       style={{ backgroundImage: `url(${imgHeroBg})` }}
     >
       <CodeWindow
-        className="absolute bottom-0 right-0 w-[500px]"
+        className="absolute bottom-0 -right-10 w-[300px] md:w-[350px] xl:w-[400px]"
         codeString={codeString}
       />
       <div className="h-full w-full flex justify-center items-center">
-        <h1 className="relative w-full text-center text-[9rem] leading-normal drop-shadow-2xl">
+        <h1 className="relative w-full text-center text-[3rem] sm:text-[4rem] md:text-[6rem] lg:text-[7rem] xl:text-[9rem] leading-normal drop-shadow-2xl">
           <AnimatedLoopyLine
-            className="absolute -top-[3em] -left-24 w-[12em] drop-shadow-xl"
+            className="absolute -top-[100%] -left-[5%] w-[110%] drop-shadow-xl"
             duration={5}
             delay={1}
             loop

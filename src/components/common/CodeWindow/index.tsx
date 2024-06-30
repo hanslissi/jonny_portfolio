@@ -6,11 +6,10 @@ import { anOldHope } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 interface CodeWindowProps {
     codeString: string;
     className?: string;
-
 }
 
 const CodeWindow = ({ codeString, className }: CodeWindowProps) => {
-    
+
     return (
         <div className={className}>
             <div className="relative">
@@ -26,11 +25,9 @@ const CodeWindow = ({ codeString, className }: CodeWindowProps) => {
                         <div className="h-3 aspect-square rounded-full bg-[#00C74D]" />
                     </div>
                     <hr className="h-px w-full bg-whiteHighlight border-0"></hr>
-                    <div className="">
-                        <SyntaxHighlighter language="javascript" style={anOldHope} showLineNumbers>
-                            {codeString}
-                        </SyntaxHighlighter>
-                    </div>
+                    <SyntaxHighlighter language="javascript" style={anOldHope} showLineNumbers>
+                        {codeString}
+                    </SyntaxHighlighter>
                 </div>
             </div>
 

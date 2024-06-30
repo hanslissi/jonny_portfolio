@@ -29,7 +29,7 @@
 
 @layer components {
   .card-dark {
-    @apply bg-darkSecondaryBg rounded-3xl border-[0.5px];
+    @apply bg-darkSecondaryBg rounded-xl md:rounded-3xl border-[0.5px];
   }
 
   .glasscard-dark {
@@ -37,7 +37,7 @@
   }
 
   .card-darkSecondary {
-    @apply bg-darkTertiaryBg rounded-3xl border-[0.5px];
+    @apply bg-darkTertiaryBg rounded-xl md:rounded-3xl border-[0.5px];
   }
 
   .glasscard-darkSecondary {
