@@ -8,6 +8,8 @@ import imgJonnyChair from "../../../../images/jonny/jonny_chair.png";
 import LogoLinkCard from "../../../common/LogoLinkCard";
 import { StaticImage, getImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
+import P5Wrapper from "../../../common/P5Wrapper";
+import CVGitGraphSketch from "./CVGitGraphSketch";
 
 const imgLinkedInPath = "../../../../images/logos/linkedin.png";
 const imgThreadsPath = "../../../../images/logos/threads.png";
@@ -142,6 +144,9 @@ const AboutMeBentoGrid = () => {
           <h3>Life (git)graph</h3>
           <p className="mt-2">My Curriculum Vitae in a git graph form</p>
         </div>
+        <P5Wrapper 
+          sketch={CVGitGraphSketch}
+        />
       </div>
       <div
         className="col-span-2 glasscard-dark bg-cover"
