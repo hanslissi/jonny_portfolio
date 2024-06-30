@@ -83,7 +83,7 @@ const Projects = () => {
   return (
     <SectionWrapper
       id="projects"
-      className="container mx-auto max-w-[920px] flex flex-col gap-16 items-center"
+      className="container mx-auto max-w-[920px] flex flex-col gap-4 md:gap-16 items-center"
     >
       <h1 className="text-center">Projects</h1>
       <div className="flex flex-col gap-4 w-full">
@@ -130,7 +130,7 @@ const Projects = () => {
 
         <hr className="h-px w-full bg-whiteHighlight border-0"></hr>
       </div>
-      <div className="grid grid-cols-3 gap-8 w-full">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 w-full">
         {data.allSanityProject.edges.map((project: any, index: number) => {
           const projectVisible = showProject(project);
 
