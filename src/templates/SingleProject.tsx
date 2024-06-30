@@ -59,7 +59,7 @@ const SingleProject = ({ data }: PageProps<SingleProjectQuery>) => {
               })}
             </div>
           </div>
-          <div className="flex flex-row w-full gap-8">
+          <div className="flex flex-col lg:flex-row w-full gap-8">
             {thumbnail && (
               <GatsbyImage
                 className="w-full rounded-xl"
@@ -67,7 +67,7 @@ const SingleProject = ({ data }: PageProps<SingleProjectQuery>) => {
                 alt={`${title} project thumbnail`}
               />
             )}
-            <div className="w-[60%]">
+            <div className="w-full lg:w-[60%]">
               <MyPortableText value={abstractContent} />
             </div>
           </div>
