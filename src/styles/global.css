@@ -43,6 +43,10 @@
   .glasscard-darkSecondary {
     @apply card-darkSecondary backdrop-blur-md;
   }
+
+  .focus-ring-primary {
+    @apply focus:outline-none focus:ring focus:ring-primary;
+  }
 }
 
 @layer utilities {

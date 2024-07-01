@@ -36,9 +36,7 @@ const SingleProject = ({ data }: PageProps<SingleProjectQuery>) => {
 
   return (
     <main>
-      <Nav backbuttonInfo={
-        {title: "Back to Projects", href: "/#projects"}
-      }/>
+      <Nav backbuttonInfo={{ title: "Back to Projects", href: "/#projects" }} />
       <div className="container mx-auto mt-32">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-2">
@@ -73,14 +71,18 @@ const SingleProject = ({ data }: PageProps<SingleProjectQuery>) => {
           </div>
           <div className="flex flex-col items-center gap-8">
             <h2>Tools & Tech Stack</h2>
-            <div className="flex flex-row gap-8">
+            <div className="flex flex-row gap-4">
               {projectTools.map((tool, index) => {
-                return <TechLogoCardLink
-                  key={index}
-                  img={getImage(tool.toolLogo.asset)}
-                  imgSrc={tool.toolLogo.asset.gatsbyImageData.images.fallback.src}
-                  title={tool.title}
-                />
+                return (
+                  <TechLogoCardLink
+                    key={index}
+                    img={getImage(tool.toolLogo.asset)}
+                    imgSrc={
+                      tool.toolLogo.asset.gatsbyImageData.images.fallback.src
+                    }
+                    title={tool.title}
+                  />
+                );
               })}
             </div>
           </div>

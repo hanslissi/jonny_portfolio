@@ -4,6 +4,7 @@ import Nav from "../components/layout/Nav";
 import Hero from "../components/home/sections/Hero";
 import AboutMe from "../components/home/sections/AboutMe";
 import Projects from "../components/home/sections/Projects";
+import Contact from "../components/home/sections/Contact";
 
 const IndexPage = () => {
   return (
@@ -12,6 +13,7 @@ const IndexPage = () => {
       <Hero />
       <AboutMe />
       <Projects />
+      <Contact />
     </main>
   );
 };
