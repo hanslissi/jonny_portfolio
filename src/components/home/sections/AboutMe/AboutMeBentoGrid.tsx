@@ -32,7 +32,7 @@ const AboutMeBentoGrid = () => {
               }
             }
           }
-        } 
+        }
       }
     }
   `);
@@ -40,7 +40,7 @@ const AboutMeBentoGrid = () => {
   return (
     <div className="relative w-full max-w-[920px] md:h-[1128px] grid grid-cols-7 grid-rows-3 gap-4 md:gap-8">
       <div className="col-span-7 md:col-span-5 glasscard-dark p-4 md:p-8 flex flex-col justify-between">
-      <div className="flex flex-row gap-2">
+        <div className="flex flex-row gap-2">
           <StaticImage
             src={imgGithubPath}
             alt="Jonny Profile Image"
@@ -101,21 +101,21 @@ const AboutMeBentoGrid = () => {
           glass
         />
       </div>
-      <div className="col-span-3 glasscard-dark pb-8 hidden md:flex flex-col gap-4 justify-between overflow-hidden">
+      <div className="col-span-3 glasscard-dark pb-4 md:pb-8 hidden md:flex flex-col gap-4 justify-between overflow-hidden">
         <img
           src={imgGatsbyCover}
           alt="Github Logo"
           className="h-full object-cover"
         ></img>
-        <div className="px-8">
+        <div className="px-4 md:px-8">
           <h3>Continuously Growing</h3>
           <p className="mt-2">
             I’m currently learning GatsbyJS in my freetime!
           </p>
         </div>
       </div>
-      <div className="col-span-7 md:col-span-4 glasscard-dark py-8 flex flex-col justify-between">
-        <div className="px-8">
+      <div className="col-span-7 md:col-span-4 glasscard-dark py-4 md:py-8 flex flex-col justify-between">
+        <div className="px-4 md:px-8">
           <h3>Allrounder</h3>
           <p className="mt-2">
             As I like discovering and learning new tools and technologies, here
@@ -139,14 +139,12 @@ const AboutMeBentoGrid = () => {
           })}
         </div>
       </div>
-      <div className="min-h-[250px] col-span-7 md:col-span-5 glasscard-dark pt-8 flex flex-col gap-4 justify-between overflow-hidden">
-        <div className="px-8">
+      <div className="min-h-[250px] col-span-7 md:col-span-5 glasscard-dark pt-4 md:pt-8 flex flex-col gap-4 justify-between overflow-hidden">
+        <div className="px-4 md:px-8">
           <h3>Life (git)graph</h3>
           <p className="mt-2">My Curriculum Vitae in a git graph form</p>
         </div>
-        <P5Wrapper 
-          sketch={CVGitGraphSketch}
-        />
+        <P5Wrapper sketch={CVGitGraphSketch} />
       </div>
       <div
         className="col-span-7 min-h-[200px] md:col-span-2 glasscard-dark bg-cover"

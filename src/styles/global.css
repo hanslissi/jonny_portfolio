@@ -23,7 +23,7 @@
   }
 
   p {
-    @apply text-xs text-whiteHighlight md:text-sm lg:text-base;
+    @apply text-whiteHighlight text-base lg:text-lg;
   }
 }
 
