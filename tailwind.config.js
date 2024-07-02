@@ -12,8 +12,8 @@ module.exports = {
         secondary: "#C070EA",
         primaryBg: "#2E373D",
         brightSecondaryBg: "#3331320D",
-        darkSecondaryBg: "#232323CC",
-        darkTertiaryBg: "#23232314",
+        darkSecondaryBg: "#121212CC",
+        darkTertiaryBg: "#12121246",
         whiteHighlight: "#FFFFFF80",
       },
       borderColor: {

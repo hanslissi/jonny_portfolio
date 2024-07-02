@@ -3,8 +3,6 @@ import TechLogoCardLink from "../../../common/TechLogoCard";
 import imgLinkedin from "../../../../images/logos/linkedin.png";
 import imgThreads from "../../../../images/logos/threads.png";
 import imgGithub from "../../../../images/logos/github.png";
-import imgGatsbyCover from "../../../../images/gatsby_cover.png";
-import imgJonnyChair from "../../../../images/jonny/jonny_chair.png";
 import LogoLinkCard from "../../../common/LogoLinkCard";
 import { StaticImage, getImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
@@ -38,16 +36,16 @@ const AboutMeBentoGrid = () => {
   `);
 
   return (
-    <div className="relative w-full max-w-[920px] md:h-[1128px] grid grid-cols-7 grid-rows-3 gap-4 md:gap-8">
+    <div className="relative w-full max-w-[920px] grid grid-cols-7 grid-rows-3 gap-4 md:gap-8">
       <div className="col-span-7 md:col-span-5 glasscard-dark p-4 md:p-8 flex flex-col justify-between">
         <div className="flex flex-row gap-2">
           <StaticImage
-            src={imgGithubPath}
+            src="../../../../images/jonny/jonny_dark_smiling_profile.jpg"
             alt="Jonny Profile Image"
-            className="h-full rounded-full"
+            className="h-16 aspect-square rounded-full"
           />
           <div className="flex flex-col justify-center">
-            <h4>Johannes Riedmüller</h4>
+            <h3>Johannes Riedmüller</h3>
             <p>aka Jonny</p>
           </div>
         </div>
@@ -102,11 +100,11 @@ const AboutMeBentoGrid = () => {
         />
       </div>
       <div className="col-span-3 glasscard-dark pb-4 md:pb-8 hidden md:flex flex-col gap-4 justify-between overflow-hidden">
-        <img
-          src={imgGatsbyCover}
-          alt="Github Logo"
+        <StaticImage
+          src="../../../../images/gatsby_cover.png"
+          alt="Gatsby Logo"
           className="h-full object-cover"
-        ></img>
+        ></StaticImage>
         <div className="px-4 md:px-8">
           <h3>Continuously Growing</h3>
           <p className="mt-2">
@@ -146,9 +144,10 @@ const AboutMeBentoGrid = () => {
         </div>
         <P5Wrapper sketch={CVGitGraphSketch} />
       </div>
-      <div
-        className="col-span-7 min-h-[200px] md:col-span-2 glasscard-dark bg-cover"
-        style={{ backgroundImage: `url(${imgJonnyChair})` }}
+      <StaticImage
+        src="../../../../images/jonny/jonny_dark_proud.jpg"
+        alt="Jonny Profile Image"
+        className="col-span-7 min-h-[200px] md:col-span-2 card-dark"
       />
     </div>
   );

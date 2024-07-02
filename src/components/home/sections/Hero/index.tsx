@@ -14,7 +14,7 @@ const Hero = () => {
     <span>who can.</span>
     <span className="font-mono font-extrabold">{"code();_"}</span>
   </h1>
-  `
+  `;
   return (
     <SectionWrapper
       className="h-[100vh] min-h-[680px] bg-cover"
@@ -22,7 +22,7 @@ const Hero = () => {
       style={{ backgroundImage: `url(${imgHeroBg})` }}
     >
       <CodeWindow
-        className="absolute bottom-0 -right-10 w-[300px] md:w-[350px] xl:w-[400px]"
+        className="absolute -bottom-16 -right-10 w-[300px] md:w-[350px] xl:w-[400px]"
         codeString={codeString}
       />
       <div className="h-full w-full flex justify-center items-center">
@@ -38,7 +38,9 @@ const Hero = () => {
             Designer{" "}
           </span>
           <span className="relative">who can.</span>
-          <span className="relative font-mono font-extrabold">{"code();_"}</span>
+          <span className="relative font-mono font-extrabold">
+            {"code();_"}
+          </span>
         </h1>
       </div>
     </SectionWrapper>

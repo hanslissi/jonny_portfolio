@@ -55,7 +55,9 @@ const Projects = () => {
   `);
 
   const [selectedTagIds, setSelectedTagIds] = React.useState<Array<string>>([]);
-  const [selectedScopeIds, setSelectedScopeIds] = React.useState<Array<string>>([]);
+  const [selectedScopeIds, setSelectedScopeIds] = React.useState<Array<string>>(
+    []
+  );
 
   const showProject = (project: any) => {
     if (selectedTagIds.length > 0) {
@@ -73,27 +75,23 @@ const Projects = () => {
     }
 
     return true;
-  }
+  };
 
   const handleClickReset = () => {
     setSelectedTagIds([]);
     setSelectedScopeIds([]);
-  }
+  };
 
   return (
     <SectionWrapper
       id="projects"
-      className="container mx-auto max-w-[920px] flex flex-col gap-4 md:gap-16 items-center"
+      className="container mx-auto max-w-[920px] flex flex-col items-center gap-4 md:gap-16 my-24 px-4"
     >
       <h1 className="text-center">Projects</h1>
       <div className="flex flex-col gap-4 w-full">
         <div className="flex flex-row gap-4 w-full items-center">
           <div className="flex flex-row gap-2 items-center">
-            <img
-              src={imgFilterIcon}
-              alt="Filter icon"
-              className="h-4"
-            />
+            <img src={imgFilterIcon} alt="Filter icon" className="h-4" />
             {"Filter"}
           </div>
           <FilterDropdown
@@ -107,7 +105,9 @@ const Projects = () => {
               return tag;
             })}
             initialSelectedIds={selectedTagIds}
-            onChange={(selectedTagIdsUpdated) => setSelectedTagIds(selectedTagIdsUpdated)}
+            onChange={(selectedTagIdsUpdated) =>
+              setSelectedTagIds(selectedTagIdsUpdated)
+            }
           />
           <FilterDropdown
             filterType="Scopes"
@@ -120,11 +120,15 @@ const Projects = () => {
               return scopeTag;
             })}
             initialSelectedIds={selectedScopeIds}
-            onChange={(selectedScopeIdsUpdated) => setSelectedScopeIds(selectedScopeIdsUpdated)}
+            onChange={(selectedScopeIdsUpdated) =>
+              setSelectedScopeIds(selectedScopeIdsUpdated)
+            }
             noDot
           />
           {(selectedTagIds.length > 0 || selectedScopeIds.length > 0) && (
-            <button className="underline" onClick={handleClickReset}>Reset</button>
+            <button className="underline" onClick={handleClickReset}>
+              Reset
+            </button>
           )}
         </div>
 
@@ -134,21 +138,23 @@ const Projects = () => {
         {data.allSanityProject.edges.map((project: any, index: number) => {
           const projectVisible = showProject(project);
 
-          return projectVisible && (
-            <ProjectPreview
-              key={index}
-              title={project.node.title}
-              year={project.node.year}
-              scope={project.node.scope.title}
-              thumbnailSrc={project.node.thumbnail.asset.publicUrl}
-              slug={project.node.slug.current}
-              tags={project.node.tags.map((tag: any) => {
-                return {
-                  name: tag.title,
-                  hexColorString: tag.color,
-                };
-              })}
-            />
+          return (
+            projectVisible && (
+              <ProjectPreview
+                key={index}
+                title={project.node.title}
+                year={project.node.year}
+                scope={project.node.scope.title}
+                thumbnailSrc={project.node.thumbnail.asset.publicUrl}
+                slug={project.node.slug.current}
+                tags={project.node.tags.map((tag: any) => {
+                  return {
+                    name: tag.title,
+                    hexColorString: tag.color,
+                  };
+                })}
+              />
+            )
           );
         })}
       </div>

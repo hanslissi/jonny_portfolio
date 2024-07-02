@@ -129,11 +129,18 @@ const ContactForm = ({ className }: ContactFormProps) => {
     <div className={clsx("relative w-full", className)}>
       <FormProvider {...methods}>
         <form
-          className="flex flex-col"
+          className="flex flex-col items-center lg:items-start"
           onSubmit={(e) => e.preventDefault()}
           noValidate
         >
-          <h2>Send a Message</h2>
+          <div className="flex flex-row items-center gap-2">
+            <StaticImage
+              src="../../../../images/jonny/jonny_dark_smiling_profile.jpg"
+              alt="Jonny Profile Image"
+              className="h-16 aspect-square rounded-full lg:hidden"
+            />
+            <h1>Send a Message</h1>
+          </div>
           <div className="w-full flex flex-col gap-2">
             <Input
               name="fromName"
