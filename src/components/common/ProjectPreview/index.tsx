@@ -1,8 +1,7 @@
 import React from "react";
-import ProjectTag, { Tag } from "../Tag";
+import ProjectTag, { Tag } from "../ProjectTag";
 
 interface ProjectPreviewProps {
-  key: React.Key | null | undefined;
   title: string;
   year: number;
   scope: string;
@@ -12,7 +11,6 @@ interface ProjectPreviewProps {
 }
 
 const ProjectPreview = ({
-  key,
   title,
   year,
   scope,
@@ -23,8 +21,7 @@ const ProjectPreview = ({
   return (
     <a
       href={`/projects/${slug}`}
-      key={key}
-      className="h-[250px] sm:h-[300px] glasscard-dark p-2 md:p-4 flex flex-col gap-2 cursor-pointer"
+      className="h-[250px] sm:h-[300px] card-dark p-2 md:p-4 flex flex-col gap-2 cursor-pointer"
     >
       <img
         src={thumbnailSrc}

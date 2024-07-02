@@ -1,6 +1,6 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
-import ProjectTag, { Tag } from "../components/common/Tag";
+import ProjectTag, { Tag } from "../components/common/ProjectTag";
 import { PortableTextBlock } from "@portabletext/react";
 import MyPortableText from "../components/common/MyPortableText";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
@@ -37,7 +37,7 @@ const SingleProject = ({ data }: PageProps<SingleProjectQuery>) => {
   return (
     <main>
       <Nav backbuttonInfo={{ title: "Back to Projects", href: "/#projects" }} />
-      <div className="container mx-auto mt-32">
+      <div className="container mx-auto mt-32 px-4">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-2">
             <h1>{title}</h1>
@@ -116,7 +116,7 @@ export const projectQuery = graphql`
       thumbnail {
         asset {
           gatsbyImageData(
-            width: 400
+            width: 1200
             placeholder: BLURRED
             formats: [AUTO, WEBP, AVIF]
           )

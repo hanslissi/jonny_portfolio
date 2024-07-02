@@ -7,7 +7,7 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { AnimatePresence, Variants, motion } from "framer-motion";
 import FormInfoMessage from "../../../common/FormInfoMessage";
 import Modal from "../../../common/Modal";
-import { DURATION_MEDIUM } from "../../../../constants/animationConstants";
+import { DURATION_FAST } from "../../../../constants/animationConstants";
 import clsx from "clsx";
 import LogoLinkCard from "../../../common/LogoLinkCard";
 import imgLinkedin from "../../../../images/logos/linkedin.png";
@@ -41,17 +41,13 @@ const submitButtonVariants: Variants = {
   idle: {
     scale: 1,
     transition: {
-      type: "spring",
-      bounce: 0.6,
-      duration: DURATION_MEDIUM,
+      duration: DURATION_FAST,
     },
   },
   tapped: {
     scale: 0.95,
     transition: {
-      type: "spring",
-      bounce: 0.6,
-      duration: DURATION_MEDIUM,
+      duration: DURATION_FAST,
     },
   },
 };

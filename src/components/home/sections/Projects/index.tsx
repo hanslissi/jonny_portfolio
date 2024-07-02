@@ -4,7 +4,9 @@ import ProjectPreview from "../../../common/ProjectPreview";
 import FilterDropdown from "../../../common/FilterDropdown";
 import imgFilterIcon from "../../../../images/icons/filter.svg";
 import { useStaticQuery, graphql } from "gatsby";
-import { Tag } from "../../../common/Tag";
+import { Tag } from "../../../common/ProjectTag";
+import { AnimatePresence, motion } from "framer-motion";
+import { DURATION_FAST } from "../../../../constants/animationConstants";
 
 const Projects = () => {
   const data: Queries.ProjectPrieviewQuery = useStaticQuery(graphql`
@@ -135,28 +137,39 @@ const Projects = () => {
         <hr className="h-px w-full bg-whiteHighlight border-0"></hr>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 w-full">
-        {data.allSanityProject.edges.map((project: any, index: number) => {
-          const projectVisible = showProject(project);
-
-          return (
-            projectVisible && (
-              <ProjectPreview
-                key={index}
-                title={project.node.title}
-                year={project.node.year}
-                scope={project.node.scope.title}
-                thumbnailSrc={project.node.thumbnail.asset.publicUrl}
-                slug={project.node.slug.current}
-                tags={project.node.tags.map((tag: any) => {
-                  return {
-                    name: tag.title,
-                    hexColorString: tag.color,
-                  };
-                })}
-              />
-            )
-          );
-        })}
+        <AnimatePresence>
+          {data.allSanityProject.edges.map((project: any, index: number) => {
+            const projectVisible = showProject(project);
+            return (
+              projectVisible && (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0 }}
+                  transition={{
+                    duration: DURATION_FAST,
+                  }}
+                  layout
+                >
+                  <ProjectPreview
+                    title={project.node.title}
+                    year={project.node.year}
+                    scope={project.node.scope.title}
+                    thumbnailSrc={project.node.thumbnail.asset.publicUrl}
+                    slug={project.node.slug.current}
+                    tags={project.node.tags.map((tag: any) => {
+                      return {
+                        name: tag.title,
+                        hexColorString: tag.color,
+                      };
+                    })}
+                  />
+                </motion.div>
+              )
+            );
+          })}
+        </AnimatePresence>
       </div>
     </SectionWrapper>
   );
