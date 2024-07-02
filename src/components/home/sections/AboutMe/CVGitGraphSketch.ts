@@ -23,7 +23,7 @@ const cvEntries: CVEntry[] = [
     title: "HTBLA Kaindorf",
     dateStart: new Date(2016, 8, 1),
     dateEnd: new Date(2016, 8, 1),
-    description: "Started computer science branch, working language English",
+    description: "Started computer science branch, with language English",
   },
   {
     type: "job",
@@ -80,7 +80,7 @@ const CVGitGraphSketch: MySketch = (width: number, height: number) => {
     const colorJob = p.color(189, 121, 236);
     const colorPopUp = p.color(35, 35, 35);
     const colorHighlight = p.color(163, 163, 163, 70);
-    const fontSize = 16;
+    const fontSize = width < 450 ? 12 : 16;
     let urbanistRegular: p5.Font;
     let urbanistBold: p5.Font;
 
@@ -239,7 +239,11 @@ const CVGitGraphSketch: MySketch = (width: number, height: number) => {
             padding / 2,
             p.width - rectWidth - padding / 2
           );
-          const rectY = boundsTitle.y - padding / 4 - rectHeight;
+          const rectY = p.constrain(
+            boundsTitle.y - padding / 4 - rectHeight,
+            2,
+            p.height - rectHeight
+          );
 
           p.fill(colorPopUp);
           p.stroke(colorHighlight);
@@ -255,7 +259,7 @@ const CVGitGraphSketch: MySketch = (width: number, height: number) => {
           p.text(
             entry.description,
             rectX + padding / 4,
-            boundsDescription.y + padding / 4 - rectHeight
+            rectY + padding / 2 + boundsTitle.h + padding / 8
           );
 
           p.fill(255, 95);
