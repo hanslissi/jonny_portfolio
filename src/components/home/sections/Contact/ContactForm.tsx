@@ -204,7 +204,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
 
           <div className="w-full flex flex-row items-center gap-4">
             <hr className="h-px w-full bg-whiteHighlight border-0"></hr>
-            <p className="text-nowrap">or contact me on my socials</p>
+            <p className="whitespace-nowrap">or contact me on my socials</p>
             <hr className="h-px w-full bg-whiteHighlight border-0"></hr>
           </div>
           <div className="w-full flex flex-row justify-center gap-4 mt-12">

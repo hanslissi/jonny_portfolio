@@ -24,6 +24,9 @@ module.exports = {
         sans: ["Roboto", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
       },
+      whitespace: {
+        nowrap: "nowrap",
+      },
     },
   },
   plugins: [],

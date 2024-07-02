@@ -124,7 +124,7 @@ const Nav = ({ backbuttonInfo }: NavProps) => {
                   >
                     <Link
                       to="/#home"
-                      className="block px-4 py-2 rounded-full text-nowrap hover:bg-whiteHighlight"
+                      className="block px-4 py-2 rounded-full whitespace-nowrap hover:bg-whiteHighlight"
                     >
                       Home
                     </Link>
@@ -136,7 +136,7 @@ const Nav = ({ backbuttonInfo }: NavProps) => {
                   >
                     <Link
                       to="/#about-me"
-                      className="block px-4 py-2 rounded-full text-nowrap hover:bg-whiteHighlight"
+                      className="block px-4 py-2 rounded-full whitespace-nowrap hover:bg-whiteHighlight"
                     >
                       About Me
                     </Link>
@@ -148,7 +148,7 @@ const Nav = ({ backbuttonInfo }: NavProps) => {
                   >
                     <Link
                       to="/#projects"
-                      className="block px-4 py-2 rounded-full text-nowrap hover:bg-whiteHighlight"
+                      className="block px-4 py-2 rounded-full whitespace-nowrap hover:bg-whiteHighlight"
                     >
                       Projects
                     </Link>
@@ -160,7 +160,7 @@ const Nav = ({ backbuttonInfo }: NavProps) => {
                   >
                     <Link
                       to="/#contact"
-                      className="block px-4 py-2 rounded-full text-nowrap hover:bg-whiteHighlight"
+                      className="block px-4 py-2 rounded-full whitespace-nowrap hover:bg-whiteHighlight"
                     >
                       Contact
                     </Link>
@@ -172,7 +172,7 @@ const Nav = ({ backbuttonInfo }: NavProps) => {
                   >
                     <Link
                       to="/playground"
-                      className="block px-4 py-2 text-white rounded-full text-nowrap bg-primary transition-colors duration-500 hover:bg-secondary"
+                      className="block px-4 py-2 text-white rounded-full whitespace-nowrap bg-primary transition-colors duration-500 hover:bg-secondary"
                     >
                       Playground
                     </Link>

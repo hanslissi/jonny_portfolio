@@ -65,7 +65,7 @@ const ProjectTag = ({
           variants={toolTipVariants}
         >
           <div
-            className="rounded-full text-nowrap p-2"
+            className="rounded-full whitespace-nowrap p-2"
             style={{ backgroundColor: `${hexColorString}15` }}
           >
             {tag.name}
@@ -78,7 +78,7 @@ const ProjectTag = ({
           style={{ backgroundColor: tag.hexColorString }}
         />
       )}
-      {showName && <span className="pr-1 text-nowrap">{tag.name}</span>}
+      {showName && <span className="pr-1 whitespace-nowrap">{tag.name}</span>}
     </motion.div>
   );
 };

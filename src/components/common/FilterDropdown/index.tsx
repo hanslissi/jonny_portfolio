@@ -125,7 +125,7 @@ const FilterDropdown = ({
             })
           ) : (
             <motion.div
-              className="text-nowrap"
+              className="whitespace-nowrap"
               initial={{ opacity: 0, width: "auto" }}
               animate={{ opacity: 1, width: "auto" }}
               exit={{ opacity: 0, scale: 0, width: 0 }}
