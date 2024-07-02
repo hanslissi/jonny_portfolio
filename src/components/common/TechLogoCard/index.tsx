@@ -25,7 +25,7 @@ const TechLogoCardLink = ({
           <div
             className={clsx(
               "flex flex-col items-center gap-4 p-6 rounded-xl text-whiteHighlight",
-              className, 
+              className,
               {
                 "glasscard-darkSecondary": glass,
                 "card-darkSecondary": !glass,
@@ -35,8 +35,8 @@ const TechLogoCardLink = ({
               backgroundImage: `radial-gradient(
                   farthest-corner at 5px 5px,
                   ${color}22 0%,
-                  #232323CC 100%
-                )`
+                  #121212CC 100%
+                )`,
             }}
           >
             {img && (
@@ -51,7 +51,6 @@ const TechLogoCardLink = ({
         );
       }}
     </Color>
-
   );
 };
 

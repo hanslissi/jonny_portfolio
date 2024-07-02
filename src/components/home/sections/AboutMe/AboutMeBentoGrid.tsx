@@ -8,6 +8,7 @@ import { StaticImage, getImage } from "gatsby-plugin-image";
 import { graphql, useStaticQuery } from "gatsby";
 import P5Wrapper from "../../../common/P5Wrapper";
 import CVGitGraphSketch from "./CVGitGraphSketch";
+import InfiniteHorizontalCarousel from "../../../common/InfiniteHorizontalCarousel";
 
 const imgLinkedInPath = "../../../../images/logos/linkedin.png";
 const imgThreadsPath = "../../../../images/logos/threads.png";
@@ -34,6 +35,21 @@ const AboutMeBentoGrid = () => {
       }
     }
   `);
+
+  const tools = data.allSanityProjectTool.edges.map((tool, index) => {
+    const toolLogo = tool.node.toolLogo;
+    if (!toolLogo) {
+      return null;
+    }
+    return (
+      <TechLogoCardLink
+        key={index}
+        img={getImage(toolLogo.asset)}
+        imgSrc={toolLogo.asset?.gatsbyImageData.images.fallback?.src}
+        title={tool.node.title ?? ""}
+      />
+    );
+  });
 
   return (
     <div className="relative w-full max-w-[920px] grid grid-cols-7 grid-rows-3 gap-4 md:gap-8">
@@ -120,22 +136,7 @@ const AboutMeBentoGrid = () => {
             is a list of tech I’ve come familiar with
           </p>
         </div>
-        <div className="flex gap-4 overflow-x-scroll no-scrollbar">
-          {data.allSanityProjectTool.edges.map((tool, index) => {
-            const toolLogo = tool.node.toolLogo;
-            if (!toolLogo) {
-              return null;
-            }
-            return (
-              <TechLogoCardLink
-                key={index}
-                img={getImage(toolLogo.asset)}
-                imgSrc={toolLogo.asset?.gatsbyImageData.images.fallback?.src}
-                title={tool.node.title ?? ""}
-              />
-            );
-          })}
-        </div>
+        <InfiniteHorizontalCarousel>{tools}</InfiniteHorizontalCarousel>
       </div>
       <div className="min-h-[250px] col-span-7 md:col-span-5 glasscard-dark pt-4 md:pt-8 flex flex-col gap-4 justify-between overflow-hidden">
         <div className="px-4 md:px-8">
