@@ -9,10 +9,33 @@ import { graphql, useStaticQuery } from "gatsby";
 import P5Wrapper from "../../../common/P5Wrapper";
 import CVGitGraphSketch from "./CVGitGraphSketch";
 import InfiniteHorizontalCarousel from "../../../common/InfiniteHorizontalCarousel";
+import { Variants, motion } from "framer-motion";
+import { DURATION_FAST } from "../../../../constants/animationConstants";
 
 const imgLinkedInPath = "../../../../images/logos/linkedin.png";
 const imgThreadsPath = "../../../../images/logos/threads.png";
 const imgGithubPath = "../../../../images/logos/github.png";
+
+const tapScaleVariants: Variants = {
+  idle: {
+    scale: 1,
+    transition: {
+      duration: DURATION_FAST,
+    },
+  },
+  hover: {
+    scale: 1.05,
+    transition: {
+      duration: DURATION_FAST,
+    },
+  },
+  tapped: {
+    scale: 0.95,
+    transition: {
+      duration: DURATION_FAST,
+    },
+  },
+};
 
 const AboutMeBentoGrid = () => {
   const data: Queries.AllProjectToolsQuery = useStaticQuery(graphql`
@@ -139,9 +162,22 @@ const AboutMeBentoGrid = () => {
         <InfiniteHorizontalCarousel>{tools}</InfiniteHorizontalCarousel>
       </div>
       <div className="min-h-[250px] col-span-7 md:col-span-5 glasscard-dark pt-4 md:pt-8 flex flex-col gap-4 justify-between overflow-hidden">
-        <div className="px-4 md:px-8">
-          <h3>Life (git)graph</h3>
-          <p className="mt-2">My Curriculum Vitae in a git graph form</p>
+        <div className="flex justify-between px-4 md:px-8 ">
+          <div>
+            <h3>Life (git)graph</h3>
+            <p className="mt-2">My Curriculum Vitae in a git graph form</p>
+          </div>
+          <motion.a
+            className="rounded-full whitespace-nowrap bg-gradient-to-br from-secondary to-primary animate-gradient-xy border-[0.5px] h-fit px-5 py-3"
+            variants={tapScaleVariants}
+            initial="idle"
+            whileTap="tapped"
+            whileHover="hover"
+            download={"Johannes_Riedmueller_CV.pdf"}
+            href="/files/Johannes_Riedmueller_CV.pdf"
+          >
+            Download CV
+          </motion.a>
         </div>
         <P5Wrapper sketch={CVGitGraphSketch} />
       </div>

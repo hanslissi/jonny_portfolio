@@ -34,7 +34,7 @@ const Hero = () => {
             loop
           />
           <span className="relative">A </span>
-          <span className="font-bold bg-gradient-to-br from-secondary via-primary to-secondary bg-clip-text text-transparent">
+          <span className="font-bold bg-gradient-to-br from-secondary via-primary to-secondary animate-gradient-xy bg-clip-text text-transparent">
             Designer{" "}
           </span>
           <span className="relative">who can.</span>
