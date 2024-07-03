@@ -7,6 +7,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import { Tag } from "../../../common/ProjectTag";
 import { AnimatePresence, motion } from "framer-motion";
 import { DURATION_FAST } from "../../../../constants/animationConstants";
+import { getImage } from "gatsby-plugin-image";
 
 const Projects = () => {
   const data: Queries.ProjectPrieviewQuery = useStaticQuery(graphql`
@@ -44,7 +45,11 @@ const Projects = () => {
             }
             thumbnail {
               asset {
-                publicUrl
+                gatsbyImageData(
+                  width: 300
+                  placeholder: DOMINANT_COLOR
+                  formats: [AUTO, WEBP, AVIF]
+                )
               }
             }
             slug {
@@ -140,6 +145,8 @@ const Projects = () => {
         <AnimatePresence>
           {data.allSanityProject.edges.map((project: any, index: number) => {
             const projectVisible = showProject(project);
+            const thumbnailImg = getImage(project.node.thumbnail.asset);
+
             return (
               projectVisible && (
                 <motion.div
@@ -156,7 +163,7 @@ const Projects = () => {
                     title={project.node.title}
                     year={project.node.year}
                     scope={project.node.scope.title}
-                    thumbnailSrc={project.node.thumbnail.asset.publicUrl}
+                    thumbnailImg={thumbnailImg}
                     slug={project.node.slug.current}
                     tags={project.node.tags.map((tag: any) => {
                       return {
