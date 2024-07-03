@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import { AnimationDefinition, MotionValue, Variants, motion } from "framer-motion";
-import React, { useEffect } from "react";
+import { Variants, motion } from "framer-motion";
+import React, { useEffect, useMemo } from "react";
 
 interface AnimatedLoopyLineProps {
   className?: string;
@@ -18,24 +18,19 @@ const AnimatedLoopyLine = ({
   instantFirstPlay = true,
 }: AnimatedLoopyLineProps) => {
   const [animationState, setAnimationState] = React.useState<"off" | "on">(
-    instantFirstPlay ? "on" : "off",
+    instantFirstPlay ? "on" : "off"
   );
 
   useEffect(() => {
     if (loop) {
-      // When looping is enabled, the animation will repeat after the delay time.
-      const interval = setInterval(
-        () => {
-          setAnimationState("on");
-        },
-        delay * 1000 + duration * 1000,
-      );
+      const interval = setInterval(() => {
+        setAnimationState("on");
+      }, delay * 1000 + duration * 1000);
 
       return () => {
         clearInterval(interval);
       };
     } else {
-      // When looping is disabled, the animation will only play once after the delay time.
       const timeout = setTimeout(() => {
         setAnimationState("on");
       }, delay * 1000);
@@ -44,31 +39,32 @@ const AnimatedLoopyLine = ({
         clearTimeout(timeout);
       };
     }
-  }, [delay, loop]);
+  }, [delay, duration, loop]);
 
-  function handleAnimationDefinition(definition: AnimationDefinition) {
-    if (definition === "on") {
-      setAnimationState("off");
-    }
-  }
-
-  const variants: Variants = {
-    off: {
-      pathLength: 0,
-      pathOffset: 0,
-      transition: {
-        duration: 0,
-      },
-    },
-    on: {
-      pathLength: [0, 0.5, 0],
-      pathOffset: 0.99, // needed to conquer the flickering issue
-      transition: {
-        duration: duration,
-        ease: "easeInOut",
-      },
-    },
+  const handleAnimationComplete = () => {
+    setAnimationState("off");
   };
+
+  const variants: Variants = useMemo(
+    () => ({
+      off: {
+        pathLength: 0,
+        pathOffset: 0,
+        transition: {
+          duration: 0,
+        },
+      },
+      on: {
+        pathLength: [0, 0.5, 0],
+        pathOffset: 0.99,
+        transition: {
+          duration: duration,
+          ease: "easeInOut",
+        },
+      },
+    }),
+    [duration]
+  );
 
   return (
     <motion.svg
@@ -82,8 +78,7 @@ const AnimatedLoopyLine = ({
         variants={variants}
         initial="off"
         animate={animationState}
-        onAnimationComplete={handleAnimationDefinition}
-        className={clsx(animationState === "on" ? "block" : "hidden")} // needed to conquer the flickering issue
+        onAnimationComplete={handleAnimationComplete}
         stroke="#51a0d5"
         strokeWidth="8"
         strokeLinecap="round"
@@ -93,4 +88,4 @@ const AnimatedLoopyLine = ({
   );
 };
 
-export default AnimatedLoopyLine;
+export default React.memo(AnimatedLoopyLine);

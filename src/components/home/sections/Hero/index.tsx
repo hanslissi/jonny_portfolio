@@ -26,7 +26,7 @@ const Hero = () => {
         codeString={codeString}
       />
       <div className="h-full w-full flex justify-center items-center">
-        <h1 className="relative w-full text-center text-[3rem] sm:text-[4rem] md:text-[6rem] lg:text-[7rem] xl:text-[9rem] leading-normal drop-shadow-2xl">
+        <h1 className="relative w-full text-center text-[3rem] sm:text-[4rem] md:text-[6rem] lg:text-[7rem] xl:text-[9rem] leading-normal drop-shadow-2xl mb-[50%] md:mb-0">
           <AnimatedLoopyLine
             className="absolute -top-[100%] -left-[5%] w-[110%] drop-shadow-xl"
             duration={5}
