@@ -81,7 +81,7 @@ const FilterDropdown = ({
   }, []);
 
   return (
-    <div className="relative z-10" ref={dropdownRef}>
+    <div className="relative" ref={dropdownRef}>
       <motion.button
         className={clsx(
           "h-12 flex flex-row gap-2 items-center bg-brightSecondaryBg border-[0.5px] rounded-full px-4 py-2 cursor-pointer",
@@ -126,12 +126,11 @@ const FilterDropdown = ({
           ) : (
             <motion.div
               className="whitespace-nowrap"
-              initial={{ opacity: 0, width: "auto" }}
-              animate={{ opacity: 1, width: "auto" }}
+              initial={{ opacity: 1, scale: 0, width: 0 }}
+              animate={{ opacity: 1, scale: 1, width: "auto" }}
               exit={{ opacity: 0, scale: 0, width: 0 }}
               transition={{
                 duration: DURATION_FAST,
-                delay: DURATION_FAST,
               }}
             >
               {`All ${filterType}`}
@@ -142,7 +141,7 @@ const FilterDropdown = ({
       <AnimatePresence>
         {showDropdown && (
           <motion.div
-            className="absolute w-64 flex flex-row flex-wrap gap-2 left-0 top-[100%] glasscard-dark mt-2 p-2 md:p-4"
+            className="absolute w-64 flex flex-row flex-wrap gap-2 left-0 top-[100%] glasscard-dark mt-2 p-2 md:p-4 z-10"
             initial={{ scale: 0.8, y: -30, x: -20 }}
             animate={{ scale: 1, y: 0, x: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: -30, x: -20 }}

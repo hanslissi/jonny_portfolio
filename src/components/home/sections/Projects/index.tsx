@@ -91,7 +91,7 @@ const Projects = () => {
     >
       <h1 className="text-center">Projects</h1>
       <div className="flex flex-col gap-4 w-full">
-        <div className="flex flex-row gap-4 w-full items-center">
+        <div className="flex flex-row flex-wrap gap-4 w-full items-center">
           <div className="flex flex-row gap-2 items-center">
             <img src={imgFilterIcon} alt="Filter icon" className="h-4" />
             {"Filter"}
