@@ -107,7 +107,7 @@ const AboutMeBentoGrid = () => {
           )}
           imgSrc={imgLinkedin}
           title="LinkedIn"
-          href="https://www.linkedin.com"
+          href="https://www.linkedin.com/in/johannes-riedm%C3%BCller-87a643317/"
           glass
         />
         <LogoLinkCard
@@ -120,7 +120,7 @@ const AboutMeBentoGrid = () => {
           )}
           imgSrc={imgThreads}
           title="Threads"
-          href="https://www.threads.net"
+          href="https://www.threads.net/@jonny_2.1"
           glass
         />
         <LogoLinkCard
@@ -134,7 +134,7 @@ const AboutMeBentoGrid = () => {
           )}
           imgSrc={imgGithub}
           title="GitHub"
-          href="https://github.com"
+          href="https://github.com/hanslissi"
           glass
         />
       </div>

@@ -231,7 +231,7 @@ const ContactForm = ({ className }: ContactFormProps) => {
               )}
               imgSrc={imgInstagram}
               title="Instagram"
-              href="https://www.instagram.com"
+              href="https://www.instagram.com/jonny_2.1/"
               glass
             />
             <LogoLinkCard
