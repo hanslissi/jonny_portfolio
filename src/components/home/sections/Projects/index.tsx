@@ -28,7 +28,7 @@ const Projects = () => {
           }
         }
       }
-      allSanityProject {
+      allSanityProject(sort: { year: DESC }) {
         edges {
           node {
             title

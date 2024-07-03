@@ -37,7 +37,7 @@ const SingleProject = ({ data }: PageProps<SingleProjectQuery>) => {
   return (
     <main>
       <Nav backbuttonInfo={{ title: "Back to Projects", href: "/#projects" }} />
-      <div className="container mx-auto mt-32 px-4">
+      <div className="container mx-auto my-32 px-4">
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-2">
             <h1>{title}</h1>
