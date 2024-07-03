@@ -21,12 +21,12 @@ const ProjectPreview = ({
   return (
     <a
       href={`/projects/${slug}`}
-      className="h-[250px] sm:h-[300px] card-dark p-2 md:p-4 flex flex-col gap-2 cursor-pointer"
+      className="min-h-[250px] sm:min-h-[300px] h-full card-dark p-2 md:p-4 flex flex-col gap-2 cursor-pointer"
     >
       <img
         src={thumbnailSrc}
         alt={`${title} project thumbnail`}
-        className="h-full object-cover rounded-md md:rounded-xl"
+        className="w-full h-full object-cover rounded-md md:rounded-xl"
       ></img>
       <div className="flex flex-col">
         <h3>{title}</h3>
