@@ -4,6 +4,7 @@ import {
   PortableTextBlock,
   PortableTextComponents,
 } from "@portabletext/react";
+import ReactPlayer from "react-player";
 
 const components: PortableTextComponents = {
   block: {
@@ -29,6 +30,27 @@ const components: PortableTextComponents = {
         </div>
       );
     },
+    vimeoUrl: ({ value }) => {
+      console.log(value);
+      return (
+        <div className="flex justify-center aspect-video rounded-xl overflow-hidden">
+          <ReactPlayer
+            url={value.url}
+            width="100%"
+            height="100%"
+            controls
+            muted
+            config={{
+              vimeo: {
+                playerOptions: {
+                  autoplay: true,
+                }
+              }
+            }}
+          />
+        </div>
+      );
+    }
   },
 };
 
