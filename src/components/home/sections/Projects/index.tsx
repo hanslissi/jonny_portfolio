@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import SectionWrapper from "../../../wrappers/SectionWrapper";
 import ProjectPreview from "../../../common/ProjectPreview";
 import FilterDropdown from "../../../common/FilterDropdown";
 import imgFilterIcon from "../../../../images/icons/filter.svg";
+import folderAnimationData from "./folderAnimation.json";
+import lottie from "lottie-web";
 import { useStaticQuery, graphql } from "gatsby";
 import { Tag } from "../../../common/ProjectTag";
 import { AnimatePresence, motion } from "framer-motion";
@@ -61,10 +63,30 @@ const Projects = () => {
     }
   `);
 
+  const lottieFolderRef = useRef<HTMLDivElement>(null);
   const [selectedTagIds, setSelectedTagIds] = React.useState<Array<string>>([]);
   const [selectedScopeIds, setSelectedScopeIds] = React.useState<Array<string>>(
     []
   );
+
+  useEffect(() => {
+    if (lottieFolderRef.current) {
+      lottie.loadAnimation({
+        name: "folderAnimation",
+        container: lottieFolderRef.current,
+        renderer: "svg",
+        autoplay: false,
+        loop: false,
+        animationData: folderAnimationData,
+      });
+      
+      lottie.setSpeed(2);
+    }
+
+    return () => {
+      lottie.destroy();
+    }
+  }, [lottieFolderRef]);
 
   const showProject = (project: any) => {
     if (selectedTagIds.length > 0) {
@@ -89,12 +111,31 @@ const Projects = () => {
     setSelectedScopeIds([]);
   };
 
+  const handleMouseEnterFolderAnimation = () => {
+    lottie.setDirection(1);
+    lottie.play("folderAnimation");
+  };
+
+  const handleMouseLeaveFolderAnimation = () => {
+    lottie.setDirection(-1);
+    lottie.play("folderAnimation");
+  }
+
   return (
     <SectionWrapper
       id="projects"
       className="container mx-auto max-w-[920px] flex flex-col items-center gap-4 md:gap-16 my-24 px-4"
     >
-      <h1 className="text-center">Projects</h1>
+      <div className="flex flex-row items-end gap-6">
+        <motion.div
+          className="w-[100px]"
+          ref={lottieFolderRef}
+          whileHover={{ scale: 1.02 }}
+          onMouseEnter={handleMouseEnterFolderAnimation}
+          onMouseLeave={handleMouseLeaveFolderAnimation}
+        />
+        <h1 className="mb-2">Projects</h1>
+      </div>
       <div className="flex flex-col gap-4 w-full">
         <div className="flex flex-row flex-wrap gap-4 w-full items-center">
           <div className="flex flex-row gap-2 items-center">
