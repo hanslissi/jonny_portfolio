@@ -9,11 +9,7 @@ const AboutMeTitle = () => {
 
     return (
         <h1>
-            <span>About </span>
-            <span className="relative">
-                Me
-
-            </span>
+            About Me
         </h1>
     );
 }
