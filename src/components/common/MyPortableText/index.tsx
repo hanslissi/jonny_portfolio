@@ -18,6 +18,16 @@ const components: PortableTextComponents = {
       </>
     ),
   },
+  marks: {
+    link: ({ children, value }) => {
+      const rel = !value.href.startsWith('/') ? 'noreferrer noopener' : undefined
+      return (
+        <a href={value.href} rel={rel} className="underline">
+            {children} 🔗
+        </a>
+      )
+    }
+  },
   types: {
     image: ({ value }) => {
       return (
