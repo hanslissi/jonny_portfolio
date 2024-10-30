@@ -54,6 +54,7 @@ const components: PortableTextComponents = {
               vimeo: {
                 playerOptions: {
                   autoplay: true,
+                  loop: true
                 }
               }
             }}
