@@ -2,6 +2,7 @@ import clsx from "clsx";
 import Color from "color-thief-react";
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
+import DimensionHoverContainer from "../DimensionHoverContainer";
 
 interface TechLogoCardLinkProps {
   img: IGatsbyImageData | undefined;
@@ -22,32 +23,36 @@ const TechLogoCardLink = ({
     <Color src={imgSrc ?? ""} format={"hex"} crossOrigin="anonymous">
       {({ data: color }) => {
         return (
-          <div
-            className={clsx(
-              "flex flex-col items-center gap-4 p-6 rounded-xl text-whiteHighlight",
-              className,
-              {
-                "glasscard-darkSecondary": glass,
-                "card-darkSecondary": !glass,
-              }
-            )}
-            style={{
-              backgroundImage: `radial-gradient(
+          <DimensionHoverContainer>
+            <div
+              className={clsx(
+                "flex flex-col items-center gap-4 p-6 rounded-xl text-whiteHighlight",
+                className,
+                {
+                  "glasscard-darkSecondary": glass,
+                  "card-darkSecondary": !glass,
+                }
+              )}
+              style={{
+                backgroundImage: `radial-gradient(
                   farthest-corner at 5px 5px,
                   ${color}22 0%,
                   #121212CC 100%
                 )`,
-            }}
-          >
-            {img && (
-              <GatsbyImage
-                className="h-12 aspect-square rounded-xl"
-                image={img}
-                alt={`Logo of ${title}`}
-              />
-            )}
-            {title}
-          </div>
+                transformStyle: "preserve-3d"
+              }}
+            >
+              {img && (
+                <GatsbyImage
+                  className="h-12 aspect-square rounded-xl"
+                  style={{ transform: "translateZ(30px)" }}
+                  image={img}
+                  alt={`Logo of ${title}`}
+                />
+              )}
+              {title}
+            </div>
+          </DimensionHoverContainer>
         );
       }}
     </Color>

@@ -11,7 +11,7 @@ const InfiniteHorizontalCarousel = ({
   duration = 14,
 }: InfiniteHorizontalCarouselProps) => {
   return (
-    <div className="flex w-full overflow-hidden">
+    <div className="flex w-full overflow-x-clip">
       <motion.div
         className="flex gap-4"
         initial={{ x: 0 }}
