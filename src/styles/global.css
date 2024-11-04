@@ -11,7 +11,7 @@
   }
 
   h1 {
-    @apply font-fancy font-semibold text-3xl md:text-6xl;
+    @apply font-fancy font-semibold text-5xl md:text-6xl;
   }
 
   h2 {
@@ -29,7 +29,7 @@
 
 @layer components {
   .card-dark {
-    @apply bg-darkSecondaryBg rounded-xl md:rounded-3xl border-[0.5px];
+    @apply bg-darkSecondaryBg rounded-2xl md:rounded-3xl border-[0.5px];
   }
 
   .glasscard-dark {
@@ -37,7 +37,7 @@
   }
 
   .card-darkSecondary {
-    @apply bg-darkTertiaryBg rounded-xl md:rounded-3xl border-[0.5px];
+    @apply bg-darkTertiaryBg rounded-2xl md:rounded-3xl border-[0.5px];
   }
 
   .glasscard-darkSecondary {

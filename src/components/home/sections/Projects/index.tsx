@@ -138,7 +138,7 @@ const Projects = () => {
       </div>
       <div className="flex flex-col gap-4 w-full">
         <div className="flex flex-row flex-wrap gap-4 w-full items-center">
-          <div className="flex flex-row gap-2 items-center">
+          <div className="hidden sm:flex flex-row gap-2 items-center">
             <img src={imgFilterIcon} alt="Filter icon" className="h-4" />
             {"Filter"}
           </div>
@@ -182,7 +182,7 @@ const Projects = () => {
 
         <hr className="h-px w-full bg-whiteHighlight border-0"></hr>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-8 w-full">
         <AnimatePresence>
           {data.allSanityProject.edges.map((project: any, index: number) => {
             const projectVisible = showProject(project);

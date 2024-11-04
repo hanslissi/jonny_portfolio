@@ -28,12 +28,12 @@ const ProjectPreview = ({
       <div className="min-h-[250px] sm:min-h-[300px] h-full">
         <DimensionHoverContainer className="h-full w-full">
           <div
-            className="h-full card-dark p-2 md:p-4 flex flex-col gap-2 cursor-pointer relative"
+            className="h-full card-dark p-4 flex flex-col gap-2 cursor-pointer relative"
             style={{ transformStyle: "preserve-3d" }}
           >
             {thumbnailImg && (
               <GatsbyImage
-                className="w-full h-full object-cover rounded-md md:rounded-xl"
+                className="w-full h-full object-cover rounded-xl"
                 style={{ transform: "translateZ(30px)" }}
                 image={thumbnailImg}
                 alt={`${title} project thumbnail`}
