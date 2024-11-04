@@ -140,14 +140,14 @@ const AboutMeBentoGrid = () => {
       </div>
       <div className="col-span-3 glasscard-dark pb-4 md:pb-8 hidden md:flex flex-col gap-4 justify-between overflow-hidden">
         <StaticImage
-          src="../../../../images/gatsby_cover.png"
+          src="../../../../images/unity_cover.jpg"
           alt="Gatsby Logo"
           className="h-full object-cover"
         ></StaticImage>
         <div className="px-4 md:px-8">
           <h3>Continuously Growing</h3>
           <p className="mt-2">
-            I’m currently learning GatsbyJS in my freetime!
+            I’m currently learning Unity in my freetime!
           </p>
         </div>
       </div>
